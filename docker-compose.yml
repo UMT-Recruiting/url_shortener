@@ -2,7 +2,7 @@ version: "3.8"
 services: 
   app:
     build: .
-    command: python shortener.py
+    command: python routes/routes.py
     ports:
       - "5000:5000"
     volumes:
