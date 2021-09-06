@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS urls;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE urls (
+    member_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    url TEXT NOT NULL,
+    short_url TEXT NOT NULL,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expiration TEXT NOT NULL
+);
+
+-- CREATE TABLE users (
+    
+-- )

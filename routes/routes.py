@@ -1,6 +1,10 @@
 from flask import Flask, render_template, redirect, make_response
+import os 
 
 app = Flask(__name__, template_folder='../templates')
+app.config.from_mapping(
+    DATABASE=os.path.join(app.instance_path, 'shorten.sqlite')
+)
 
 # Should return a home page where the users can input their URL or shortened URL
 # HTTP Method -> GET
