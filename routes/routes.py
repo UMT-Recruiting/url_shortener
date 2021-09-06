@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, make_response
+from ..logic.shorten import Shortener
 import os 
 
 app = Flask(__name__, template_folder='../templates')
@@ -18,11 +19,11 @@ def shorten(url):
     pass
 
 # POST to logic that returns a customized shortened URL
-@app.route('/shorten/custom')
+@app.route('/shorten/custom', methods=['POST'])
 
 # POST to logic that un-shrotens the given short URL
 @app.route('/unshorten')
-def unshorten(short_url):
+def unshorten(short_url, methods=['POST']):
     pass
 
 # Test that the shortened URL route works
@@ -31,12 +32,12 @@ def test_url():
     pass
 
 # POST to loging and verify login credentials
-@app.route('/login')
+@app.route('/login', methods=['POST'])
 def login():
     pass
 
 # POST to register and sign up as a new user
-@app.route('/register')
+@app.route('/register', methods=['POST'])
 def register():
     pass
 
