@@ -1,20 +1,25 @@
-from constants import SECRET_KEY
+from constants import SALT
+from ...models import urls_db
+from flask import g
+import urllib
 
-class Shorten:
+class Shortener:
     def __init__(self, url, custom_path=None):
         self.url = url
         self.custom_path = custom_path
+        self.cursor = urls_db().cursor()
         
     def shorten(self):
         #  Call function to check that url does not already have a shortened url
         #  If it exists throw error
-        if self.already_shortened(self.url):
+        if self.is_already_shortened(self.url):
             return
         
         if self.custom_path:
             # Check that custom path provided does not already exist
             # If it exists return error
             # Else, add url with custom path to the database
+            
             pass
         
         # Call function to hash the url
@@ -25,7 +30,7 @@ class Shorten:
         # Check database for shortened url
         # If it exists return True
         # If it does not exist return False
-        pass
+        return False
     
     def verify_url():
         # verify url structure is valid
