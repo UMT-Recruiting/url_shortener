@@ -19,7 +19,6 @@ def init_app(app):
     app.teardown_appcontext(close_database)
     app.cli.add_command(init_database_command)
     
-
 def get_database():
     if 'database' not in g:
         g.database = sqlite3.connect(
